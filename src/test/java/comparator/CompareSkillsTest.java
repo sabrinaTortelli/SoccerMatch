@@ -1,5 +1,6 @@
-package comparator;
+package test.java.comparator;
 
+import comparator.CompareSkills;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import players.Attacker;
@@ -17,7 +18,7 @@ class CompareSkillsTest {
     private CompareSkills comp = new CompareSkills();
     private Team t1 = new Team("teamOne");
     private Team  t2 = new Team("teamTwo");
-    private Team  t3 = new Team("teamThree");
+//    private Team  t3 = new Team("teamThree");
 //    private Team  t4 = new Team("teamThree");
 
     private Goalkeeper goalA;
@@ -30,13 +31,13 @@ class CompareSkillsTest {
     private Attacker attackerB2;
     private Defender defenderB1;
     private Defender defenderB2;
-    private Defender defenderB3;
-    private Goalkeeper goalC;
-    private Attacker attackerC1;
-    private Attacker attackerC2;
-    private Defender defenderC1;
-    private Defender defenderC2;
-//    private Goalkeeper goalD;
+//    private Defender defenderB3;
+//    private Goalkeeper goalC;
+//    private Attacker attackerC1;
+//    private Attacker attackerC2;
+//    private Defender defenderC1;
+//    private Defender defenderC2;
+////    private Goalkeeper goalD;
 //    private Attacker attackerD1;
 //    private Attacker attackerD2;
 //    private Defender defenderD1;
@@ -58,11 +59,11 @@ class CompareSkillsTest {
         attackerB2 = new Attacker("Ingrid", dateOfBirth, PlayersType.ATTACKER2, 45,45);
         defenderB2 = new Defender("Griselda", dateOfBirth, PlayersType.DEFENDER2, 45, 45);
 
-        goalC = new Goalkeeper("Janaina", dateOfBirth, PlayersType.GOALKEEPER, 90, 90);
-        attackerC1 = new Attacker("Roberta", dateOfBirth, PlayersType.ATTACKER1, 90,90);
-        defenderC1 = new Defender("Judithe", dateOfBirth, PlayersType.DEFENDER1, 90, 90);
-        attackerC2 = new Attacker("Renata", dateOfBirth, PlayersType.ATTACKER2, 90,90);
-        defenderC2 = new Defender("Nazaré", dateOfBirth, PlayersType.DEFENDER2, 90, 90);
+//        goalC = new Goalkeeper("Janaina", dateOfBirth, PlayersType.GOALKEEPER, 90, 90);
+//        attackerC1 = new Attacker("Roberta", dateOfBirth, PlayersType.ATTACKER1, 90,90);
+//        defenderC1 = new Defender("Judithe", dateOfBirth, PlayersType.DEFENDER1, 90, 90);
+//        attackerC2 = new Attacker("Renata", dateOfBirth, PlayersType.ATTACKER2, 90,90);
+//        defenderC2 = new Defender("Nazaré", dateOfBirth, PlayersType.DEFENDER2, 90, 90);
 
 //        goalD = new Goalkeeper("Janaina", dateOfBirth, PlayersType.GOALKEEPER, -90, 90);
 //        attackerD1 = new Attacker("Roberta", dateOfBirth, PlayersType.ATTACKER1, -90,90);
@@ -89,13 +90,13 @@ class CompareSkillsTest {
         team2.add(defenderB2);
         t2.setTeamSkill(team2);
 
-        ArrayList team3 = new ArrayList<>();
-        team3.add(goalC);
-        team3.add(attackerC1);
-        team3.add(defenderC1);
-        team3.add(attackerC2);
-        team3.add(defenderC2);
-        t3.setTeamSkill(team3);
+//        ArrayList team3 = new ArrayList<>();
+//        team3.add(goalC);
+//        team3.add(attackerC1);
+//        team3.add(defenderC1);
+//        team3.add(attackerC2);
+//        team3.add(defenderC2);
+//        t3.setTeamSkill(team3);
 
 //        ArrayList team4 = new ArrayList<>();
 //        team3.add(goalD);
@@ -120,7 +121,7 @@ class CompareSkillsTest {
     }
     @Test
     void tie(){
-        assertEquals(0, comp.compare(t1,t3));
+        assertEquals(0, comp.compare(t1,t1));
     }
 
 }

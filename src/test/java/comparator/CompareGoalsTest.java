@@ -1,9 +1,8 @@
-package comparator;
+package test.java.comparator;
 
-import org.junit.jupiter.api.BeforeAll;
+import comparator.CompareGoals;
 import org.junit.jupiter.api.Test;
 import team.Team;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class CompareGoalsTest {
