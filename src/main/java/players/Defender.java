@@ -63,9 +63,9 @@ public class Defender extends SoccerPlayer {
      */
     @Override
     public BigDecimal getSkill(){
-        BigDecimal valueDisarm = new BigDecimal(0.4);
+        BigDecimal valueDisarm = new BigDecimal("0.4");
         BigDecimal cover = new BigDecimal(getCover());
-        BigDecimal valueCover = new BigDecimal(0.6);
+        BigDecimal valueCover = new BigDecimal("0.6");
         BigDecimal disarm = new BigDecimal(getDisarm());
         return ((disarm.multiply(valueDisarm)).add(cover.multiply(valueCover))).setScale(1, RoundingMode.HALF_EVEN);
     }

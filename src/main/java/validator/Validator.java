@@ -14,7 +14,7 @@ public class Validator {
      */
     public void validateArgument(String name, LocalDate dateOfBirth) {
         if(name == null || dateOfBirth == null){
-            throw new IllegalArgumentException("Invalid Argument");
+            throw new IllegalArgumentException("Arguments must not be null");
         }
     }
 
@@ -23,7 +23,7 @@ public class Validator {
      * @param name nome do jogador
      */
     public void validateName(String name) {
-        if(name.equals(" ")){
+        if(name.equals("")){
             throw new IllegalArgumentException("Name must not be empty");
         }
     }
