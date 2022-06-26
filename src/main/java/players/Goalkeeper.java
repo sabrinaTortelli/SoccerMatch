@@ -69,9 +69,9 @@ public class Goalkeeper extends SoccerPlayer {
      */
     @Override
     public BigDecimal getSkill(){
-        BigDecimal valueHeight = new BigDecimal(0.4);
+        BigDecimal valueHeight = new BigDecimal("0.4");
         BigDecimal reflex = new BigDecimal(getReflex());
-        BigDecimal valueReflex = new BigDecimal(0.6);
+        BigDecimal valueReflex = new BigDecimal("0.6");
         return ((getHeight().multiply(valueHeight)).add(reflex.multiply(valueReflex))).setScale(1,RoundingMode.HALF_EVEN);
     }
 

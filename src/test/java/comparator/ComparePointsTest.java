@@ -1,4 +1,4 @@
-package test.java.comparator;
+package comparator;
 
 import comparator.ComparePoints;
 import org.junit.jupiter.api.Test;
