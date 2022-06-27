@@ -28,7 +28,7 @@ public class Team {
      */
     public Team(String name){
         Validator validator = new Validator();
-        validator.validateName(name);
+        validator.validateNameTeam(name);
         this.name = name;
     }
 
@@ -167,15 +167,26 @@ public class Team {
     }
 
     /**
-     * Adiciona os jogadores em um time.
-     * Se for um jogador em uma posição repetida, ele não adiciona
+     * Função auxiliar para adicionar jogadores à lista do time
      * @param soccerTeam lista de jogadores de um time
      * @param player jogador
-     * @return lista de jogadores
+     * @return true quando adiciona um jogador à lista de jogadores
      */
-    public ArrayList<SoccerPlayer> addPlayers(ArrayList<SoccerPlayer> soccerTeam, SoccerPlayer player) {
+    public boolean addPlayersInTeam(ArrayList<SoccerPlayer> soccerTeam, SoccerPlayer player){
+        soccerTeam.add(player);
+        return true;
+    }
+
+    /**
+     * Adiciona os jogadores em um time.
+     * Se for um jogador em uma posição repetida, ele não adiciona e retorna false
+     * @param soccerTeam lista de jogadores de um time
+     * @param player jogador
+     * @return true se adicionou o jogador na lista do time, false se já está completo o tipo de jogador na equipe
+     */
+    public boolean addPlayers(ArrayList<SoccerPlayer> soccerTeam, SoccerPlayer player) {
         if (soccerTeam.isEmpty()) {
-            soccerTeam.add(player);
+            return addPlayersInTeam(soccerTeam, player);
         } else {
             int contGoal = 0;
             int contDefender1 = 0;
@@ -185,46 +196,42 @@ public class Team {
             for (int i = 0; i < soccerTeam.size(); i++) {
                 if (soccerTeam.get(i).getType() == PlayersType.GOALKEEPER) {
                     contGoal++;
-                }
-                if (soccerTeam.get(i).getType() == PlayersType.DEFENDER1) {
+                } else if (soccerTeam.get(i).getType() == PlayersType.DEFENDER1) {
                     contDefender1++;
-                }
-                if (soccerTeam.get(i).getType() == PlayersType.ATTACKER1) {
+                } else if (soccerTeam.get(i).getType() == PlayersType.ATTACKER1) {
                     contAttacker1++;
-                }
-                if (soccerTeam.get(i).getType() == PlayersType.DEFENDER2) {
+                } else if (soccerTeam.get(i).getType() == PlayersType.DEFENDER2) {
                     contDefender2++;
-                }
-                if (soccerTeam.get(i).getType() == PlayersType.ATTACKER2) {
+                } else if (soccerTeam.get(i).getType() == PlayersType.ATTACKER2) {
                     contAttacker2++;
                 }
             }
             if ((player.getType() == PlayersType.GOALKEEPER && contGoal < 1) ||
-                    (player.getType() == PlayersType.DEFENDER1 && contDefender1 < 1) ||
-                    (player.getType() == PlayersType.ATTACKER1 && contAttacker1 < 1) ||
-                    (player.getType() == PlayersType.DEFENDER2 && contDefender2 < 1) ||
-                    (player.getType() == PlayersType.ATTACKER2 && contAttacker2 < 1)) {
-                soccerTeam.add(player);
+                        (player.getType() == PlayersType.DEFENDER1 && contDefender1 < 1) ||
+                        (player.getType() == PlayersType.ATTACKER1 && contAttacker1 < 1) ||
+                        (player.getType() == PlayersType.DEFENDER2 && contDefender2 < 1) ||
+                        (player.getType() == PlayersType.ATTACKER2 && contAttacker2 < 1)) {
+                return addPlayersInTeam(soccerTeam, player);
             } else {
-                System.out.println("There are already enough players of this type on the list");
+                return false;
             }
         }
-        return soccerTeam;
     }
 
     /**
      * Remove o jogador escolhido do time
      * @param soccerTeam lista de jogadores de um time
      * @param namePlayer nome do jogador a ser removido
-     * @return lista de jogadores de um time
+     * @return true se foi possível remover, falso se não foi possível pois não existe o jogador no time
      */
-    public ArrayList<SoccerPlayer> removePlayers(ArrayList<SoccerPlayer> soccerTeam, String namePlayer){
+    public boolean removePlayers(ArrayList<SoccerPlayer> soccerTeam, String namePlayer){
         for(int i=0; i<soccerTeam.size(); i++){
             if(namePlayer.equals(soccerTeam.get(i).getNamePlayer())){
                 soccerTeam.remove(i);
+                return true;
             }
         }
-        return soccerTeam;
+        return false;
     }
 
     /**

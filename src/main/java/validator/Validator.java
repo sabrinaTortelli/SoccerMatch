@@ -18,6 +18,12 @@ public class Validator {
         }
     }
 
+    public void validateNameTeam(String name) {
+        if(name == null || name.equals("")){
+            throw new IllegalArgumentException("Name must not be null or empty");
+        }
+    }
+
     /**
      * Valida o nome do jogador. Se for uma String vazia, ele quebra o programa.
      * @param name nome do jogador

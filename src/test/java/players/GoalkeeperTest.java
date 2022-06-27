@@ -16,9 +16,7 @@ class GoalkeeperTest {
     Goalkeeper gk2;
     Goalkeeper gk3;
     Goalkeeper gk4;
-
     BigDecimal inferiorLimit;
-
     BigDecimal upperLimit;
 
     @BeforeEach
