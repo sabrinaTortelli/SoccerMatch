@@ -1,7 +1,6 @@
 package matches;
 
 import comparator.*;
-import math.Math;
 import players.PlayersType;
 import team.Result;
 import team.Team;
@@ -11,6 +10,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Random;
+import java.lang.Math;
 
 /**
  * Classe que implementa os métodos para as partidas dos times de futebol.
@@ -44,6 +44,49 @@ public class Match {
     }
 
     /**
+     * Seta os gols do time de acordo com o número randomico sorteado e qual time tem as maiores chances
+     * @param match lista dos times da partida atual
+     * @param result total de gols de um time
+     * @param team qual o time está pontuando
+     */
+    public void setGoalsTeams(ArrayList<Team> match, int result, int team){
+        match.get(team).setGoalTeam1(result);
+        match.get(team).setTotalGoalTeam(result);
+    }
+
+    /**
+     * Chama a função de setar os gols do time de acordo com o número randomico sorteado e qual time tem as maiores chances
+     * @param match lista dos times da partida atual
+     * @param number número randômico
+     * @param resultMax maior resultado dos gols dos times
+     * @param resultMin menor resultado dos gols dos times
+     * @param larger indica qual das opções de chances a ser utilizada para o cálculo
+     */
+    public void setChancesLarger(ArrayList<Team> match, int number, int resultMax, int resultMin, boolean larger){
+        if((larger && number == 0) || (!larger && (number >=0 && number<2))){
+            if(match.get(0).getTeamsType() == TeamsType.VISITOR){
+                setGoalsTeams(match,resultMax,0);
+            } else if(match.get(0).getTeamsType() == TeamsType.HOME){
+                setGoalsTeams(match,resultMin,0);
+            } else if(match.get(1).getTeamsType() == TeamsType.VISITOR){
+                setGoalsTeams(match,resultMax,1);
+            } else{
+                setGoalsTeams(match,resultMin,1);
+            }
+        } else if((larger && number>0) || (!larger && number >=2)){
+            if(match.get(0).getTeamsType() == TeamsType.HOME){
+                setGoalsTeams(match,resultMax,0);
+            } else if(match.get(0).getTeamsType() == TeamsType.VISITOR){
+                setGoalsTeams(match,resultMin,0);
+            } else if(match.get(1).getTeamsType() == TeamsType.HOME){
+                setGoalsTeams(match,resultMax,1);
+            } else{
+                setGoalsTeams(match,resultMin,1);
+            }
+        }
+    }
+
+    /**
      * Método que compara as chances dos times. Se o time da casa tem maior habilidade que o time visitante,
      * então o time da casa tem 2x mais chance de ganhar a partida.
      * Se o time visitante tem maior habilidade, então os times tem chances iguais de ganhar a partida
@@ -54,8 +97,8 @@ public class Match {
     public void setChanceTeams(ArrayList<Team> match, int result1, int result2) {
         BigDecimal chanceHome = new BigDecimal(0);
         BigDecimal chanceVisitor = new BigDecimal(0);
-        Math compare = new Math();
-        compare.setMinMax(result1, result2);
+        int resultMax = Math.max(result1, result2);
+        int resultMin = Math.min(result1, result2);
         Random random = new Random();
         int number;
         for (int i = 0; i < match.size(); i++) {
@@ -67,72 +110,10 @@ public class Match {
         }
         if (chanceHome.compareTo(chanceVisitor) > 0) {
             number = random.nextInt(3);
-            if(number == 0){
-                if(match.get(0).getTeamsType() == TeamsType.VISITOR){
-                    match.get(0).setGoalTeam1(compare.getMax());
-                    match.get(0).setTotalGoalTeam(compare.getMax());
-                } else {
-                    match.get(0).setGoalTeam1(compare.getMin());
-                    match.get(0).setTotalGoalTeam(compare.getMin());
-                }
-                if(match.get(1).getTeamsType() == TeamsType.VISITOR){
-                    match.get(1).setGoalTeam2(compare.getMax());
-                    match.get(1).setTotalGoalTeam(compare.getMax());
-                } else{
-                    match.get(1).setGoalTeam2(compare.getMin());
-                    match.get(1).setTotalGoalTeam(compare.getMin());
-                }
-            }
-            if(number > 0){
-                if(match.get(0).getTeamsType() == TeamsType.HOME){
-                    match.get(0).setGoalTeam1(compare.getMax());
-                    match.get(0).setTotalGoalTeam(compare.getMax());
-                } else {
-                    match.get(0).setGoalTeam1(compare.getMin());
-                    match.get(0).setTotalGoalTeam(compare.getMin());
-                }
-                if(match.get(1).getTeamsType() == TeamsType.HOME){
-                    match.get(1).setGoalTeam2(compare.getMax());
-                    match.get(1).setTotalGoalTeam(compare.getMax());
-                } else{
-                    match.get(1).setGoalTeam2(compare.getMin());
-                    match.get(1).setTotalGoalTeam(compare.getMin());
-                }
-            }
+            setChancesLarger(match, number, resultMax, resultMin, true);
         } else {
             number = random.nextInt(4);
-            if(number >=0 && number<2){
-                if(match.get(0).getTeamsType() == TeamsType.VISITOR){
-                    match.get(0).setGoalTeam1(compare.getMax());
-                    match.get(0).setTotalGoalTeam(compare.getMax());
-                } else {
-                    match.get(0).setGoalTeam1(compare.getMin());
-                    match.get(0).setTotalGoalTeam(compare.getMin());
-                }
-                if(match.get(1).getTeamsType() == TeamsType.VISITOR){
-                    match.get(1).setGoalTeam2(compare.getMax());
-                    match.get(1).setTotalGoalTeam(compare.getMax());
-                } else{
-                    match.get(1).setGoalTeam2(compare.getMin());
-                    match.get(1).setTotalGoalTeam(compare.getMin());
-                }
-            }
-            if(number >=2){
-                if(match.get(0).getTeamsType() == TeamsType.HOME){
-                    match.get(0).setGoalTeam1(compare.getMax());
-                    match.get(0).setTotalGoalTeam(compare.getMax());
-                } else {
-                    match.get(0).setGoalTeam1(compare.getMin());
-                    match.get(0).setTotalGoalTeam(compare.getMin());
-                }
-                if(match.get(1).getTeamsType() == TeamsType.HOME){
-                    match.get(1).setGoalTeam2(compare.getMax());
-                    match.get(1).setTotalGoalTeam(compare.getMax());
-                } else{
-                    match.get(1).setGoalTeam2(compare.getMin());
-                    match.get(1).setTotalGoalTeam(compare.getMin());
-                }
-            }
+            setChancesLarger(match, number, resultMax, resultMin, false);
         }
     }
 
