@@ -77,8 +77,11 @@ class MatchTest {
         team3.addPlayers(defenderC2);
     }
 
-    //Teste Funcional
-    //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+     */
     @Test()
     @DisplayName("Get exception with null date of match")
     void testDateMatchNull() {
@@ -90,8 +93,11 @@ class MatchTest {
         }
     }
 
-    //Teste Funcional
-    //Técnica Utilizada: Partição de Equivalência - Valores Válidos e Inválidos
+
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Válidos e Inválidos
+     */
     @Test
     void testAddTeamsInMatch() {
         match = new Match(LocalDate.parse("2020-05-20"));
@@ -102,7 +108,11 @@ class MatchTest {
         );
     }
 
-    //Teste Funcional
+
+    /**
+     * Testa os fluxos da simulação
+     * OBS: não foi feito um teste mais preciso, pois na simulação foi trabalho com números randômicos
+     */
     @Test
     void testSimulation() {
         match = new Match(LocalDate.parse("2020-05-20"));
@@ -136,7 +146,11 @@ class MatchTest {
         match3.showTeamPlayersStatistics();
     }
 
-    //Teste Funcional
+
+    /**
+     * Testa as comparações estatísticas da simulação
+     * OBS: não foi feito um teste mais preciso, pois na simulação foi trabalho com números randômicos
+     */
     @Test
     void testCompareStatistics(){
         testSimulation();

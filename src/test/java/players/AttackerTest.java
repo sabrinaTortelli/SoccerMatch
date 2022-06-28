@@ -25,8 +25,10 @@ class AttackerTest {
         upperLimit = new BigDecimal(101);
     }
 
-    //Teste Funcional
-    //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+     */
     @Test()
     @DisplayName("Get exception with null name")
     void testNameNull() {
@@ -38,8 +40,10 @@ class AttackerTest {
         }
     }
 
-    //Teste Funcional
-    //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+     */
     @Test()
     @DisplayName("Get exception with empty name")
     void testEmptyName() {
@@ -51,8 +55,10 @@ class AttackerTest {
         }
     }
 
-    //Teste Funcional
-    //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+     */
     @Test()
     @DisplayName("Get exception with null date of birth")
     void testDateBirthNull() {
@@ -64,8 +70,10 @@ class AttackerTest {
         }
     }
 
-    //Teste Funcional
-    //Técnica Utilizada: Partição de Equivalência - Valores Válidos
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Válidos
+     */
     @Test
     @DisplayName("Get player's shirt number")
     void getShirtNumber() {
@@ -73,8 +81,10 @@ class AttackerTest {
         assertEquals(10, at2.getShirtNumber());
     }
 
-    //Teste Funcional
-    //Técnica Utilizada: Partição de Equivalência - Valores Válidos
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Válidos
+     */
     @Test
     @DisplayName("Get player's age")
     void getPlayerAge() {
@@ -82,8 +92,10 @@ class AttackerTest {
         assertEquals(21, at2.getAge());
     }
 
-    //Teste Funcional
-    //Técnica Utilizada: Partição de Equivalência - Valores Válidos
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Válidos
+     */
     @Test
     @DisplayName("Get player's technique value")
     void getTechnique() {
@@ -91,8 +103,10 @@ class AttackerTest {
         assertEquals(88, at2.getTechnique());
     }
 
-    //Teste Funcional
-    //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+     */
     @Test()
     @DisplayName("Get exception with invalid Technique")
     void testTechniqueInvalid1() {
@@ -104,8 +118,10 @@ class AttackerTest {
         }
     }
 
-    //Teste Funcional
-    //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+     */
     @Test()
     @DisplayName("Get exception with invalid Technique")
     void testTechniqueInvalid2() {
@@ -117,8 +133,10 @@ class AttackerTest {
         }
     }
 
-    //Teste Funcional
-    //Técnica Utilizada: Partição de Equivalência - Valores Válidos
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Válidos
+     */
     @Test
     @DisplayName("Get player's speed")
     void getVelocity() {
@@ -126,8 +144,10 @@ class AttackerTest {
         assertEquals(93, at2.getVelocity());
     }
 
-    //Teste Funcional
-    //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+     */
     @Test()
     @DisplayName("Get exception with invalid velocity")
     void testVelocityInvalid1() {
@@ -139,8 +159,10 @@ class AttackerTest {
         }
     }
 
-    //Teste Funcional
-    //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+     */
     @Test()
     @DisplayName("Get exception with invalid velocity")
     void testVelocityInvalid2() {
@@ -152,8 +174,10 @@ class AttackerTest {
         }
     }
 
-    //Teste Funcional
-    //Técnica Utilizada: Análise do Valor Limite
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Análise do Valores Limites
+     */
     @Test
     @DisplayName("Get player's skill value")
     void getSkillAt() {

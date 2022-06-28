@@ -61,20 +61,28 @@ class CompareSkillsTest {
         t2.setTeamSkill();
     }
 
-    //Teste Funcional
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Válidos
+     */
     @Test
     void teamOneHasMoreSkill(){
         assertEquals(1, comp.compare(t1,t2));
     }
 
-    //Teste Funcional
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Válidos
+     */
     @Test
-        //esta quebrando, metodo retorn 0 ao inves de -1
     void teamTwoHasMoreSkill(){
         assertEquals(-1, comp.compare(t2,t1));
     }
 
-    //Teste Funcional
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Válidos
+     */
     @Test
     void tie(){
         assertEquals(0, comp.compare(t1,t1));

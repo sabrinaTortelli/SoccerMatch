@@ -27,8 +27,10 @@ class DefenderTest {
         upperLimit = new BigDecimal(101);
     }
 
-    //Teste Funcional
-    //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+     */
     @Test()
     @DisplayName("Get exception with null name")
     void testNameNull() {
@@ -40,8 +42,10 @@ class DefenderTest {
         }
     }
 
-    //Teste Funcional
-    //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+     */
     @Test()
     @DisplayName("Get exception with empty name")
     void testEmptyName() {
@@ -53,8 +57,10 @@ class DefenderTest {
         }
     }
 
-    //Teste Funcional
-    //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+     */
     @Test()
     @DisplayName("Get exception with null date of birth")
     void testDateBirthNull() {
@@ -66,8 +72,10 @@ class DefenderTest {
         }
     }
 
-    //Teste Funcional
-    //Técnica Utilizada: Partição de Equivalência - Valores Válidos
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Válidos
+     */
     @Test
     @DisplayName("Get player's age")
     void getPlayerAge() {
@@ -77,8 +85,10 @@ class DefenderTest {
         );
     }
 
-    //Teste Funcional
-    //Técnica Utilizada: Partição de Equivalência - Valores Válidos
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Válidos
+     */
     @Test
     @DisplayName("Get player's shirt number")
     void getShirtNumber() {
@@ -86,8 +96,10 @@ class DefenderTest {
         assertEquals(6, def2.getShirtNumber());
     }
 
-    //Teste Funcional
-    //Técnica Utilizada: Partição de Equivalência - Valores Válidos
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Válidos
+     */
     @Test
     @DisplayName("Get player's cover value")
     void getCover() {
@@ -95,8 +107,10 @@ class DefenderTest {
         assertEquals(97, def2.getCover());
     }
 
-    //Teste Funcional
-    //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+     */
     @Test()
     @DisplayName("Get exception with invalid cover")
     void testCoverInvalid1() {
@@ -108,8 +122,10 @@ class DefenderTest {
         }
     }
 
-    //Teste Funcional
-    //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+     */
     @Test()
     @DisplayName("Get exception with invalid cover")
     void testCoverInvalid2() {
@@ -121,8 +137,10 @@ class DefenderTest {
         }
     }
 
-    //Teste Funcional
-    //Técnica Utilizada: Partição de Equivalência - Valores Válidos
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Válidos
+     */
     @Test
     @DisplayName("Get player's disarm value")
     void getDisarm() {
@@ -130,8 +148,10 @@ class DefenderTest {
         assertEquals(98, def2.getDisarm());
     }
 
-    //Teste Funcional
-    //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+     */
     @Test()
     @DisplayName("Get exception with invalid disarm")
     void testDisarmInvalid1() {
@@ -143,8 +163,10 @@ class DefenderTest {
         }
     }
 
-    //Teste Funcional
-    //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+     */
     @Test()
     @DisplayName("Get exception with invalid disarm")
     void testDisarmInvalid2() {
@@ -156,8 +178,10 @@ class DefenderTest {
         }
     }
 
-    //Teste Funcional
-    //Técnica Utilizada: Análise do Valor Limite
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Análise do Valor Limite
+     */
     @Test
     @DisplayName("Get player's skill value")
     void getSkillDef() {

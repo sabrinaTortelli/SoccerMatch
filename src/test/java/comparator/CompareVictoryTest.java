@@ -19,7 +19,10 @@ class CompareVictoryTest {
         comp = new CompareVictory();
     }
 
-    //Teste Funcional
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Válidos
+     */
     @Test
     void teamOneHasMoreVictories(){
         t1.setTotalVictory(4);
@@ -27,7 +30,10 @@ class CompareVictoryTest {
         assertEquals(1, comp.compare(t1,t2));
     }
 
-    //Teste Funcional
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Válidos
+     */
     @Test
     void teamTwoHasMoreVictories(){
         t1.setTotalVictory(4);
@@ -35,7 +41,10 @@ class CompareVictoryTest {
         assertEquals(-1, comp.compare(t1,t2));
     }
 
-    //Teste Funcional
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Válidos
+     */
     @Test
     void victory(){
         t1.setTotalVictory(0);
@@ -43,8 +52,10 @@ class CompareVictoryTest {
         assertEquals(0, comp.compare(t1,t2));
     }
 
-    //Teste Funcional
-    //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+     */
     @Test()
     @DisplayName("Get exception with negative number")
     void negativeShouldReturnIllegalArgumentException() {

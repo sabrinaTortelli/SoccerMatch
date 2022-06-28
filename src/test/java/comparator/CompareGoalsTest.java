@@ -20,7 +20,10 @@ class CompareGoalsTest {
         comp = new CompareGoals();
     }
 
-    //Teste Funcional
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Válidos
+     */
     @Test
     void teamOneHasMoreGoals(){
         t1.setTotalGoalTeam(4);
@@ -28,7 +31,10 @@ class CompareGoalsTest {
         assertEquals(1, comp.compare(t1,t2));
     }
 
-    //Teste Funcional
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Válidos
+     */
     @Test
     void teamTwoHasMoreGoals(){
         t1.setTotalGoalTeam(4);
@@ -36,7 +42,10 @@ class CompareGoalsTest {
         assertEquals(-1, comp.compare(t1,t2));
     }
 
-    //Teste Funcional
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Válidos
+     */
     @Test
     void tie(){
         t1.setTotalGoalTeam(0);
@@ -44,8 +53,10 @@ class CompareGoalsTest {
         assertEquals(0, comp.compare(t1,t2));
     }
 
-    //Teste Funcional
-    //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+     */
     @Test()
     @DisplayName("Get exception with negative goals")
     void negativeShouldReturnIllegalArgumentException() {

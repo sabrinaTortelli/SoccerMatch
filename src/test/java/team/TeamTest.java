@@ -57,8 +57,10 @@ class TeamTest {
         defenderC2 = new Defender("Nazaré", LocalDate.parse("1992-02-26"), PlayersType.DEFENDER2, 93, 75);
     }
 
-    //Teste Funcional
-    //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+     */
     @Test()
     @DisplayName("Get exception with null name")
     void testNameNull() {
@@ -70,8 +72,10 @@ class TeamTest {
         }
     }
 
-    //Teste Funcional
-    //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+     */
     @Test()
     @DisplayName("Get exception with empty name")
     void testEmptyName() {
@@ -83,8 +87,10 @@ class TeamTest {
         }
     }
 
-    //Teste Funcional
-    //Técnica Utilizada: Partição de Equivalência - Valores Válidos
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Válidos e Inválidos
+     */
     @Test
     @DisplayName("Add players at the team")
     void testAddPlayers() {
@@ -120,8 +126,10 @@ class TeamTest {
         team3.showTeam();
     }
 
-    //Teste Funcional
-    //Técnica Utilizada: Partição de Equivalência - Valores Válidos
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Válidos e Inválidos
+     */
     @Test
     @DisplayName("Remove players at the team")
     void testRemovePlayers() {
@@ -132,8 +140,11 @@ class TeamTest {
         );
     }
 
-    //Teste Funcional
-    //Técnica Utilizada: Partição de Equivalência - Valores Válidos
+
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Válidos
+     */
     @Test
     @DisplayName("Set skills team")
     void testSetSkillsTeam() {

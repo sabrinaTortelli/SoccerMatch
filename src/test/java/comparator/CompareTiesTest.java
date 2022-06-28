@@ -19,7 +19,10 @@ class CompareTiesTest {
         comp = new CompareTies();
     }
 
-    //Teste Funcional
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Válidos
+     */
     @Test
     void teamOneHasMoreTies(){
         t1.setTotalTie(4);
@@ -27,7 +30,10 @@ class CompareTiesTest {
         assertEquals(1, comp.compare(t1,t2));
     }
 
-    //Teste Funcional
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Válidos
+     */
     @Test
     void teamTwoHasMoreTies(){
         t1.setTotalTie(4);
@@ -35,7 +41,10 @@ class CompareTiesTest {
         assertEquals(-1, comp.compare(t1,t2));
     }
 
-    //Teste Funcional
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Válidos
+     */
     @Test
     void tie(){
         t1.setTotalTie(0);
@@ -43,8 +52,10 @@ class CompareTiesTest {
         assertEquals(0, comp.compare(t1,t2));
     }
 
-    //Teste Funcional
-    //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+    /**
+     * Teste Funcional
+     * Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+     */
     @Test()
     @DisplayName("Get exception with negative number")
     void negativeShouldReturnIllegalArgumentException() {
