@@ -27,6 +27,7 @@ class DefenderTest {
         upperLimit = new BigDecimal(101);
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
     @Test()
     @DisplayName("Get exception with null name")
@@ -39,6 +40,7 @@ class DefenderTest {
         }
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
     @Test()
     @DisplayName("Get exception with empty name")
@@ -51,6 +53,7 @@ class DefenderTest {
         }
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
     @Test()
     @DisplayName("Get exception with null date of birth")
@@ -63,6 +66,7 @@ class DefenderTest {
         }
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Válidos
     @Test
     @DisplayName("Get player's age")
@@ -73,6 +77,7 @@ class DefenderTest {
         );
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Válidos
     @Test
     @DisplayName("Get player's shirt number")
@@ -81,6 +86,7 @@ class DefenderTest {
         assertEquals(6, def2.getShirtNumber());
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Válidos
     @Test
     @DisplayName("Get player's cover value")
@@ -89,6 +95,7 @@ class DefenderTest {
         assertEquals(97, def2.getCover());
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
     @Test()
     @DisplayName("Get exception with invalid cover")
@@ -101,6 +108,7 @@ class DefenderTest {
         }
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
     @Test()
     @DisplayName("Get exception with invalid cover")
@@ -113,6 +121,7 @@ class DefenderTest {
         }
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Válidos
     @Test
     @DisplayName("Get player's disarm value")
@@ -121,6 +130,7 @@ class DefenderTest {
         assertEquals(98, def2.getDisarm());
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
     @Test()
     @DisplayName("Get exception with invalid disarm")
@@ -133,6 +143,7 @@ class DefenderTest {
         }
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
     @Test()
     @DisplayName("Get exception with invalid disarm")
@@ -145,6 +156,7 @@ class DefenderTest {
         }
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Análise do Valor Limite
     @Test
     @DisplayName("Get player's skill value")

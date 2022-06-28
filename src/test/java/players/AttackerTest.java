@@ -25,6 +25,7 @@ class AttackerTest {
         upperLimit = new BigDecimal(101);
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
     @Test()
     @DisplayName("Get exception with null name")
@@ -37,6 +38,7 @@ class AttackerTest {
         }
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
     @Test()
     @DisplayName("Get exception with empty name")
@@ -49,6 +51,7 @@ class AttackerTest {
         }
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
     @Test()
     @DisplayName("Get exception with null date of birth")
@@ -61,6 +64,7 @@ class AttackerTest {
         }
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Válidos
     @Test
     @DisplayName("Get player's shirt number")
@@ -69,6 +73,7 @@ class AttackerTest {
         assertEquals(10, at2.getShirtNumber());
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Válidos
     @Test
     @DisplayName("Get player's age")
@@ -77,6 +82,7 @@ class AttackerTest {
         assertEquals(21, at2.getAge());
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Válidos
     @Test
     @DisplayName("Get player's technique value")
@@ -85,6 +91,7 @@ class AttackerTest {
         assertEquals(88, at2.getTechnique());
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
     @Test()
     @DisplayName("Get exception with invalid Technique")
@@ -97,6 +104,7 @@ class AttackerTest {
         }
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
     @Test()
     @DisplayName("Get exception with invalid Technique")
@@ -109,6 +117,7 @@ class AttackerTest {
         }
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Válidos
     @Test
     @DisplayName("Get player's speed")
@@ -117,6 +126,7 @@ class AttackerTest {
         assertEquals(93, at2.getVelocity());
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
     @Test()
     @DisplayName("Get exception with invalid velocity")
@@ -129,6 +139,7 @@ class AttackerTest {
         }
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
     @Test()
     @DisplayName("Get exception with invalid velocity")
@@ -141,6 +152,7 @@ class AttackerTest {
         }
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Análise do Valor Limite
     @Test
     @DisplayName("Get player's skill value")

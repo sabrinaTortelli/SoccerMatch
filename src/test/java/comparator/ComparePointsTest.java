@@ -19,12 +19,15 @@ class ComparePointsTest {
         comp = new ComparePoints();
     }
 
+    //Teste Funcional
     @Test
     void teamOneHasMorePoints(){
         t1.setTotalPoints(4);
         t2.setTotalPoints(1);
         assertEquals(1, comp.compare(t1,t2));
     }
+
+    //Teste Funcional
     @Test
     //esta quebrando, metodo retorn 0 ao inves de -1
     void teamTwoHasMorePoints(){
@@ -32,6 +35,8 @@ class ComparePointsTest {
         t2.setTotalPoints(8);
         assertEquals(-1, comp.compare(t1,t2));
     }
+
+    //Teste Funcional
     @Test
     void tie(){
         t1.setTotalPoints(0);
@@ -39,6 +44,7 @@ class ComparePointsTest {
         assertEquals(0, comp.compare(t1,t2));
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
     @Test()
     @DisplayName("Get exception with negative points")

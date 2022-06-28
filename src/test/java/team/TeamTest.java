@@ -57,6 +57,7 @@ class TeamTest {
         defenderC2 = new Defender("Nazaré", LocalDate.parse("1992-02-26"), PlayersType.DEFENDER2, 93, 75);
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
     @Test()
     @DisplayName("Get exception with null name")
@@ -69,6 +70,7 @@ class TeamTest {
         }
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
     @Test()
     @DisplayName("Get exception with empty name")
@@ -81,6 +83,7 @@ class TeamTest {
         }
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Válidos
     @Test
     @DisplayName("Add players at the team")
@@ -117,6 +120,7 @@ class TeamTest {
         team3.showTeam();
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Válidos
     @Test
     @DisplayName("Remove players at the team")
@@ -128,6 +132,7 @@ class TeamTest {
         );
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Válidos
     @Test
     @DisplayName("Set skills team")

@@ -61,15 +61,20 @@ class CompareSkillsTest {
         t2.setTeamSkill();
     }
 
+    //Teste Funcional
     @Test
     void teamOneHasMoreSkill(){
         assertEquals(1, comp.compare(t1,t2));
     }
+
+    //Teste Funcional
     @Test
         //esta quebrando, metodo retorn 0 ao inves de -1
     void teamTwoHasMoreSkill(){
         assertEquals(-1, comp.compare(t2,t1));
     }
+
+    //Teste Funcional
     @Test
     void tie(){
         assertEquals(0, comp.compare(t1,t1));

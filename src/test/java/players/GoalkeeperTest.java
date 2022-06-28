@@ -29,6 +29,7 @@ class GoalkeeperTest {
         upperLimit = new BigDecimal(101);
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
     @Test()
     @DisplayName("Get exception with null name")
@@ -41,6 +42,7 @@ class GoalkeeperTest {
         }
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
     @Test()
     @DisplayName("Get exception with empty name")
@@ -53,6 +55,7 @@ class GoalkeeperTest {
         }
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
     @Test()
     @DisplayName("Get exception with null date of birth")
@@ -65,6 +68,7 @@ class GoalkeeperTest {
         }
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Válidos
     @Test
     @DisplayName("Get player's age")
@@ -77,6 +81,7 @@ class GoalkeeperTest {
         );
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Válidos
     @Test
     @DisplayName("Get player's shirt number")
@@ -84,6 +89,7 @@ class GoalkeeperTest {
         assertEquals(1, gk.getShirtNumber());
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Válidos
     @Test
     @DisplayName("Get player's name")
@@ -91,6 +97,7 @@ class GoalkeeperTest {
         assertEquals("Matheus", gk.getNamePlayer());
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Válidos
     @Test
     @DisplayName("Get player's height")
@@ -103,6 +110,7 @@ class GoalkeeperTest {
         );
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
     @Test()
     @DisplayName("Get exception with invalid height")
@@ -115,6 +123,7 @@ class GoalkeeperTest {
         }
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
     @Test()
     @DisplayName("Get exception with invalid height")
@@ -127,6 +136,7 @@ class GoalkeeperTest {
         }
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Válidos
     @Test
     @DisplayName("Get player's reflex")
@@ -134,6 +144,7 @@ class GoalkeeperTest {
         assertEquals(95, gk.getReflex());
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
     @Test()
     @DisplayName("Get exception with invalid reflex")
@@ -146,6 +157,7 @@ class GoalkeeperTest {
         }
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
     @Test()
     @DisplayName("Get exception with invalid reflex")
@@ -158,6 +170,7 @@ class GoalkeeperTest {
         }
     }
 
+    //Teste Funcional
     //Técnica Utilizada: Análise do Valor Limite
     @Test
     @DisplayName("Get player's skill")
