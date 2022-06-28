@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * Classe que manipula os times
  */
 public class Team {
-    ArrayList<SoccerPlayer> soccerTeam;
+    private final ArrayList<SoccerPlayer> soccerTeam;
     private final String name;
     private BigDecimal skillTeams;
     private int totalGoalTeam;
@@ -21,15 +21,19 @@ public class Team {
     private TeamsType teamsType;
     private int goalTeam1;
     private int goalTeam2;
+    private final Validator validator = new Validator();
 
     /**
      * Construtor de times
      * @param name nome do time
      */
     public Team(String name){
-        Validator validator = new Validator();
         validator.validateNameTeam(name);
         this.name = name;
+        soccerTeam = new ArrayList<>();
+        totalPoints = 0;
+        totalVictory = 0;
+        totalTie = 0;
     }
 
     /**
@@ -37,6 +41,7 @@ public class Team {
      * @param goalTeam1 gol do time 1
      */
     public void setGoalTeam1(int goalTeam1) {
+        validator.validateNegativeNumbers(goalTeam1);
         this.goalTeam1 = goalTeam1;
     }
 
@@ -45,6 +50,7 @@ public class Team {
      * @param goalTeam2 gol do time 2
      */
     public void setGoalTeam2(int goalTeam2) {
+        validator.validateNegativeNumbers(goalTeam2);
         this.goalTeam2 = goalTeam2;
     }
 
@@ -82,6 +88,7 @@ public class Team {
      * @param totalGoalTeam total de gols do time
      */
     public void setTotalGoalTeam(int totalGoalTeam) {
+        validator.validateNegativeNumbers(totalGoalTeam);
         this.totalGoalTeam += totalGoalTeam;
     }
 
@@ -104,6 +111,7 @@ public class Team {
      * @param totalPoints total de pontos
      */
     public void setTotalPoints(int totalPoints) {
+        validator.validateNegativeNumbers(totalPoints);
         this.totalPoints += totalPoints;
     }
 
@@ -119,6 +127,7 @@ public class Team {
      * @param totalTie total de empates
      */
     public void setTotalTie(int totalTie) {
+        validator.validateNegativeNumbers(totalTie);
         this.totalTie += totalTie;
     }
 
@@ -134,6 +143,7 @@ public class Team {
      * @param totalVictory total de vitórias
      */
     public void setTotalVictory(int totalVictory) {
+        validator.validateNegativeNumbers(totalVictory);
         this.totalVictory += totalVictory;
     }
 
@@ -142,14 +152,6 @@ public class Team {
      */
     public ArrayList<SoccerPlayer> getSoccerTeam() {
         return soccerTeam;
-    }
-
-    /**
-     * Seta jogadores de um time
-     * @param soccerTeam lista de jogadores de um time
-     */
-    public void setSoccerTeam(ArrayList<SoccerPlayer> soccerTeam) {
-        this.soccerTeam = soccerTeam;
     }
 
     /**
@@ -180,11 +182,10 @@ public class Team {
     /**
      * Adiciona os jogadores em um time.
      * Se for um jogador em uma posição repetida, ele não adiciona e retorna false
-     * @param soccerTeam lista de jogadores de um time
      * @param player jogador
      * @return true se adicionou o jogador na lista do time, false se já está completo o tipo de jogador na equipe
      */
-    public boolean addPlayers(ArrayList<SoccerPlayer> soccerTeam, SoccerPlayer player) {
+    public boolean addPlayers(SoccerPlayer player) {
         if (soccerTeam.isEmpty()) {
             return addPlayersInTeam(soccerTeam, player);
         } else {
@@ -193,16 +194,16 @@ public class Team {
             int contAttacker1 = 0;
             int contDefender2 = 0;
             int contAttacker2 = 0;
-            for (int i = 0; i < soccerTeam.size(); i++) {
-                if (soccerTeam.get(i).getType() == PlayersType.GOALKEEPER) {
+            for (SoccerPlayer soccerPlayer : soccerTeam) {
+                if (soccerPlayer.getType() == PlayersType.GOALKEEPER) {
                     contGoal++;
-                } else if (soccerTeam.get(i).getType() == PlayersType.DEFENDER1) {
+                } else if (soccerPlayer.getType() == PlayersType.DEFENDER1) {
                     contDefender1++;
-                } else if (soccerTeam.get(i).getType() == PlayersType.ATTACKER1) {
+                } else if (soccerPlayer.getType() == PlayersType.ATTACKER1) {
                     contAttacker1++;
-                } else if (soccerTeam.get(i).getType() == PlayersType.DEFENDER2) {
+                } else if (soccerPlayer.getType() == PlayersType.DEFENDER2) {
                     contDefender2++;
-                } else if (soccerTeam.get(i).getType() == PlayersType.ATTACKER2) {
+                } else if (soccerPlayer.getType() == PlayersType.ATTACKER2) {
                     contAttacker2++;
                 }
             }
@@ -220,11 +221,10 @@ public class Team {
 
     /**
      * Remove o jogador escolhido do time
-     * @param soccerTeam lista de jogadores de um time
      * @param namePlayer nome do jogador a ser removido
      * @return true se foi possível remover, falso se não foi possível pois não existe o jogador no time
      */
-    public boolean removePlayers(ArrayList<SoccerPlayer> soccerTeam, String namePlayer){
+    public boolean removePlayers(String namePlayer){
         for(int i=0; i<soccerTeam.size(); i++){
             if(namePlayer.equals(soccerTeam.get(i).getNamePlayer())){
                 soccerTeam.remove(i);
@@ -236,11 +236,9 @@ public class Team {
 
     /**
      * Mostra a lista de jogadores de um time
-     * @param soccerTeam lista de jogadores de um time
-     * @param team time
      */
-    public void showTeam(ArrayList<SoccerPlayer> soccerTeam, Team team){
-        System.out.println("Team: " + team.getName());
+    public void showTeam(){
+        System.out.println("Team: " + getName());
         for(SoccerPlayer t : soccerTeam){
             System.out.println(t);
         }
@@ -249,12 +247,11 @@ public class Team {
 
     /**
      * Calcula o total das habilidades do time somando as habilidades de todos os jogadores do time
-     * @param soccerPlayers lista de jogadores do time
      */
-    public void setTeamSkill(ArrayList<SoccerPlayer> soccerPlayers){
+    public void setTeamSkill(){
         BigDecimal sum = new BigDecimal(0);
-        for(int i=0; i<soccerPlayers.size(); i++){
-            sum = soccerPlayers.get(i).getSkill().add(sum);
+        for (SoccerPlayer soccerPlayer : soccerTeam) {
+            sum = soccerPlayer.getSkill().add(sum);
         }
         this.skillTeams = sum;
     }

@@ -14,7 +14,7 @@ public abstract class SoccerPlayer {
     private final String namePlayer;
     private final LocalDate dateOfBirth;
     private int goal;
-    private PlayersType type;
+    private final PlayersType type;
 
     /**
      * Construtor da classe de jogadores
@@ -73,9 +73,9 @@ public abstract class SoccerPlayer {
      * @return habilidade total do jogador
      */
     public BigDecimal getSkill(){
-        BigDecimal valueSkill4 = new BigDecimal(0.4);
+        BigDecimal valueSkill4 = new BigDecimal("0.4");
         BigDecimal skill4 = new BigDecimal(100);
-        BigDecimal valueSkill6 = new BigDecimal(0.6);
+        BigDecimal valueSkill6 = new BigDecimal("0.6");
         BigDecimal skill6 = new BigDecimal(100);
         return ((skill4.multiply(valueSkill4)).add(skill6.multiply(valueSkill6))).setScale(1, RoundingMode.HALF_EVEN);
     }

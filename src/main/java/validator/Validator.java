@@ -18,6 +18,20 @@ public class Validator {
         }
     }
 
+    /**
+     * Valida a data da partida. Se for nulo quebra o programa.
+     * @param date data da partida
+     */
+    public void validateDateMatch(LocalDate date) {
+        if(date == null){
+            throw new IllegalArgumentException("Date Match must not be null");
+        }
+    }
+
+    /**
+     * Valida o nome do time. Se for nulo ou vazio quebra o programa.
+     * @param name nome do time
+     */
     public void validateNameTeam(String name) {
         if(name == null || name.equals("")){
             throw new IllegalArgumentException("Name must not be null or empty");
@@ -73,6 +87,16 @@ public class Validator {
     public void validateAttackerSkills(int velocity, int technique) {
         if(velocity < 0 || velocity > 100 || technique < 0 || technique > 100){
             throw new IllegalArgumentException("Invalid arguments");
+        }
+    }
+
+    /**
+     * Valida números de pontuações. Se for negativo quebra o programa.
+     * @param number números de pontuações em geral
+     */
+    public void validateNegativeNumbers(int number) {
+        if(number < 0){
+            throw new IllegalArgumentException("Number must not be negative");
         }
     }
 

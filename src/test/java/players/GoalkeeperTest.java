@@ -24,7 +24,7 @@ class GoalkeeperTest {
         gk = new Goalkeeper("Matheus", LocalDate.parse("2001-02-22"), PlayersType.GOALKEEPER, 181, 95);
         gk1 = new Goalkeeper("Caio", LocalDate.parse("1999-02-08"), PlayersType.GOALKEEPER, 210, 95);
         gk2 = new Goalkeeper("Paula", LocalDate.parse("1986-02-05"), PlayersType.GOALKEEPER, 215, 95);
-        gk3 = new Goalkeeper("Maria", LocalDate.parse("1986-02-05"), PlayersType.GOALKEEPER, 0, 95);
+        gk3 = new Goalkeeper("Maria", LocalDate.parse("1987-07-08"), PlayersType.GOALKEEPER, 0, 95);
         inferiorLimit = new BigDecimal(-1);
         upperLimit = new BigDecimal(101);
     }
@@ -63,6 +63,18 @@ class GoalkeeperTest {
         } catch (IllegalArgumentException e) {
             assertEquals("Arguments must not be null", e.getMessage());
         }
+    }
+
+    //Técnica Utilizada: Partição de Equivalência - Valores Válidos
+    @Test
+    @DisplayName("Get player's age")
+    void getPlayerAge() {
+        assertAll("skill value",
+                () -> assertEquals(21, gk.getAge()),
+                () -> assertEquals(23, gk1.getAge()),
+                () -> assertEquals(36, gk2.getAge()),
+                () -> assertEquals(34, gk3.getAge())
+        );
     }
 
     //Técnica Utilizada: Partição de Equivalência - Valores Válidos

@@ -1,6 +1,5 @@
 package comparator;
 
-import comparator.CompareSkills;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import players.Attacker;
@@ -10,17 +9,13 @@ import players.PlayersType;
 import team.Team;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class CompareSkillsTest {
     private CompareSkills comp = new CompareSkills();
-    private Team t1 = new Team("teamOne");
-    private Team  t2 = new Team("teamTwo");
-//    private Team  t3 = new Team("teamThree");
-//    private Team  t4 = new Team("teamThree");
-
+    private Team t1;
+    private Team  t2;
     private Goalkeeper goalA;
     private Attacker attackerA1;
     private Attacker attackerA2;
@@ -31,21 +26,9 @@ class CompareSkillsTest {
     private Attacker attackerB2;
     private Defender defenderB1;
     private Defender defenderB2;
-//    private Defender defenderB3;
-//    private Goalkeeper goalC;
-//    private Attacker attackerC1;
-//    private Attacker attackerC2;
-//    private Defender defenderC1;
-//    private Defender defenderC2;
-////    private Goalkeeper goalD;
-//    private Attacker attackerD1;
-//    private Attacker attackerD2;
-//    private Defender defenderD1;
-//    private Defender defenderD2;
 
     @BeforeEach
-    private void iniSoccerPlayers(){
-
+    void iniSoccerPlayersAndTeams(){
         LocalDate dateOfBirth = LocalDate.parse("1996-07-25");
         goalA = new Goalkeeper("Fabiana", dateOfBirth, PlayersType.GOALKEEPER, 90, 90);
         attackerA1 = new Attacker("Jussara", dateOfBirth, PlayersType.ATTACKER1, 90,90);
@@ -59,56 +42,24 @@ class CompareSkillsTest {
         attackerB2 = new Attacker("Ingrid", dateOfBirth, PlayersType.ATTACKER2, 45,45);
         defenderB2 = new Defender("Griselda", dateOfBirth, PlayersType.DEFENDER2, 45, 45);
 
-//        goalC = new Goalkeeper("Janaina", dateOfBirth, PlayersType.GOALKEEPER, 90, 90);
-//        attackerC1 = new Attacker("Roberta", dateOfBirth, PlayersType.ATTACKER1, 90,90);
-//        defenderC1 = new Defender("Judithe", dateOfBirth, PlayersType.DEFENDER1, 90, 90);
-//        attackerC2 = new Attacker("Renata", dateOfBirth, PlayersType.ATTACKER2, 90,90);
-//        defenderC2 = new Defender("Nazaré", dateOfBirth, PlayersType.DEFENDER2, 90, 90);
+        t1 = new Team("teamOne");
+        t2 = new Team("teamTwo");
 
-//        goalD = new Goalkeeper("Janaina", dateOfBirth, PlayersType.GOALKEEPER, -90, 90);
-//        attackerD1 = new Attacker("Roberta", dateOfBirth, PlayersType.ATTACKER1, -90,90);
-//        defenderD1 = new Defender("Judithe", dateOfBirth, PlayersType.DEFENDER1, -90, 90);
-//        attackerD2 = new Attacker("Renata", dateOfBirth, PlayersType.ATTACKER2, -90,90);
-//        defenderD2 = new Defender("Nazaré", dateOfBirth, PlayersType.DEFENDER2, -90, 90);
+        t1.addPlayers(goalA);
+        t1.addPlayers(attackerA1);
+        t1.addPlayers(defenderA1);
+        t1.addPlayers(attackerA2);
+        t1.addPlayers(defenderA2);
 
+        t2.addPlayers(goalB);
+        t2.addPlayers(attackerB1);
+        t2.addPlayers(defenderB1);
+        t2.addPlayers(attackerB2);
+        t2.addPlayers(defenderB2);
+
+        t1.setTeamSkill();
+        t2.setTeamSkill();
     }
-    @BeforeEach
-    private void addPlayers(){
-        ArrayList team1 = new ArrayList<>();
-        team1.add(goalA);
-        team1.add(attackerA1);
-        team1.add(defenderA1);
-        team1.add(attackerA2);
-        team1.add(defenderA2);
-        t1.setTeamSkill(team1);
-
-        ArrayList team2 = new ArrayList<>();
-        team2.add(goalB);
-        team2.add(attackerB1);
-        team2.add(defenderB1);
-        team2.add(attackerB2);
-        team2.add(defenderB2);
-        t2.setTeamSkill(team2);
-
-//        ArrayList team3 = new ArrayList<>();
-//        team3.add(goalC);
-//        team3.add(attackerC1);
-//        team3.add(defenderC1);
-//        team3.add(attackerC2);
-//        team3.add(defenderC2);
-//        t3.setTeamSkill(team3);
-
-//        ArrayList team4 = new ArrayList<>();
-//        team3.add(goalD);
-//        team3.add(attackerD1);
-//        team3.add(defenderD1);
-//        team3.add(attackerD2);
-//        team3.add(defenderD2);
-//        t4.setTeamSkill(team4);
-    }
-
-
-
 
     @Test
     void teamOneHasMoreSkill(){
