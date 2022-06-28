@@ -62,9 +62,9 @@ public class Attacker extends SoccerPlayer {
      */
     @Override
     public BigDecimal getSkill(){
-        BigDecimal valueVelocity = new BigDecimal(0.4);
+        BigDecimal valueVelocity = new BigDecimal("0.4");
         BigDecimal velocity = new BigDecimal(getVelocity());
-        BigDecimal valueTechnique = new BigDecimal(0.6);
+        BigDecimal valueTechnique = new BigDecimal("0.6");
         BigDecimal technique = new BigDecimal(getTechnique());
         return ((velocity.multiply(valueVelocity)).add(technique.multiply(valueTechnique))).setScale(1, RoundingMode.HALF_EVEN);
     }

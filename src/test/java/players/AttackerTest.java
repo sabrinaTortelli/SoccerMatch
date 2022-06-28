@@ -3,11 +3,8 @@ package players;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import players.Attacker;
-import players.PlayersType;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -70,6 +67,14 @@ class AttackerTest {
     void getShirtNumber() {
         assertEquals(9, at1.getShirtNumber());
         assertEquals(10, at2.getShirtNumber());
+    }
+
+    //Técnica Utilizada: Partição de Equivalência - Valores Válidos
+    @Test
+    @DisplayName("Get player's age")
+    void getPlayerAge() {
+        assertEquals(21, at1.getAge());
+        assertEquals(21, at2.getAge());
     }
 
     //Técnica Utilizada: Partição de Equivalência - Valores Válidos

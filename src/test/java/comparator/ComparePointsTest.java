@@ -1,15 +1,23 @@
 package comparator;
 
-import comparator.ComparePoints;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import team.Team;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ComparePointsTest {
-    private Team t1 = new Team("teamOne");
-    private Team  t2 = new Team("teamTwo");
-    private ComparePoints comp = new ComparePoints();
+    Team t1;
+    Team  t2;
+    ComparePoints comp;
+
+    @BeforeEach
+    void initTeams(){
+        t1 = new Team("teamOne");
+        t2 = new Team("teamTwo");
+        comp = new ComparePoints();
+    }
 
     @Test
     void teamOneHasMorePoints(){
@@ -31,13 +39,17 @@ class ComparePointsTest {
         assertEquals(0, comp.compare(t1,t2));
     }
 
-    //quebra porque o programa não joga a exception esperada
-    @Test
-    void negativeShouldReturnIllegalArgumentException(){
-        t1.setTotalPoints(-1);
-        t2.setTotalPoints(0);
-        assertThrows(IllegalArgumentException.class,
-                () -> comp.compare(t1,t2));
+    //Técnica Utilizada: Partição de Equivalência - Valores Inválidos
+    @Test()
+    @DisplayName("Get exception with negative points")
+    void negativeShouldReturnIllegalArgumentException() {
+        try {
+            t2.setTotalPoints(0);
+            t1.setTotalPoints(-1);
+            fail("Necessita de exceção!");
+        } catch (IllegalArgumentException e) {
+            assertEquals("Number must not be negative", e.getMessage());
+        }
     }
 
 }

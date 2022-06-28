@@ -45,13 +45,11 @@ public class Goalkeeper extends SoccerPlayer {
      */
     public BigDecimal getHeight() {
         if(height >= 210){
-            BigDecimal fh = new BigDecimal(100);
-            return fh;
+            return new BigDecimal(100);
         }
         else{
-            double finalHeight = (height * 100)/210;
-            BigDecimal fh = new BigDecimal(finalHeight).setScale(0, RoundingMode.HALF_EVEN);
-            return fh;
+            double finalHeight = ((double) height * 100)/210;
+            return new BigDecimal(finalHeight).setScale(0, RoundingMode.HALF_EVEN);
         }
     }
 

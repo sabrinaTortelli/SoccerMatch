@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import players.*;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -32,9 +31,6 @@ class TeamTest {
     Attacker attackerC2;
     Defender defenderC1;
     Defender defenderC2;
-    ArrayList<SoccerPlayer> t1;
-    ArrayList<SoccerPlayer> t2;
-    ArrayList<SoccerPlayer> t3;
 
     @BeforeEach
     void initSoccerPlayers(){
@@ -90,60 +86,45 @@ class TeamTest {
     @DisplayName("Add players at the team")
     void testAddPlayers() {
         team1 = new Team("Barcelona Team");
-        t1 = new ArrayList<>();
         assertAll("add team 1",
-                () -> assertTrue(team1.addPlayers(t1, goalA)),
-                () -> assertTrue(team1.addPlayers(t1, attackerA1)),
-                () -> assertTrue(team1.addPlayers(t1, attackerA2)),
-                () -> assertTrue(team1.addPlayers(t1, defenderA1)),
-                () -> assertTrue(team1.addPlayers(t1, defenderA2))
+                () -> assertTrue(team1.addPlayers(goalA)),
+                () -> assertTrue(team1.addPlayers(attackerA1)),
+                () -> assertTrue(team1.addPlayers(attackerA2)),
+                () -> assertTrue(team1.addPlayers(defenderA1)),
+                () -> assertTrue(team1.addPlayers(defenderA2))
         );
-        team1.showTeam(t1, team1);
-        team1.setSoccerTeam(t1);
+        team1.showTeam();
 
         team2 = new Team("Real Madrid Team");
-        t2 = new ArrayList<>();
         assertAll("add team 2",
-                () -> assertTrue(team2.addPlayers(t2, goalB)),
-                () -> assertTrue(team2.addPlayers(t2, attackerB1)),
-                () -> assertTrue(team2.addPlayers(t2, attackerB2)),
-                () -> assertTrue(team2.addPlayers(t2, defenderB1)),
-                () -> assertTrue(team2.addPlayers(t2, defenderB2))
+                () -> assertTrue(team2.addPlayers(goalB)),
+                () -> assertTrue(team2.addPlayers(attackerB1)),
+                () -> assertTrue(team2.addPlayers(attackerB2)),
+                () -> assertTrue(team2.addPlayers(defenderB1)),
+                () -> assertTrue(team2.addPlayers(defenderB2))
         );
-        team2.showTeam(t2, team2);
-        team2.setSoccerTeam(t2);
+        team2.showTeam();
 
         team3 = new Team("Manchester United Team");
-        t3 = new ArrayList<>();
         assertAll("add team 3",
-                () -> assertTrue(team3.addPlayers(t3, goalC)),
-                () -> assertTrue(team3.addPlayers(t3, attackerC1)),
-                () -> assertTrue(team3.addPlayers(t3, attackerC2)),
-                () -> assertTrue(team3.addPlayers(t3, defenderC1)),
-                () -> assertTrue(team3.addPlayers(t3, defenderC2)),
-                () -> assertFalse(team3.addPlayers(t3, defenderB3))
+                () -> assertTrue(team3.addPlayers(goalC)),
+                () -> assertTrue(team3.addPlayers(attackerC1)),
+                () -> assertTrue(team3.addPlayers(attackerC2)),
+                () -> assertTrue(team3.addPlayers(defenderC1)),
+                () -> assertTrue(team3.addPlayers(defenderC2)),
+                () -> assertFalse(team3.addPlayers(defenderB3))
         );
-        team3.showTeam(t3, team3);
-        team3.setSoccerTeam(t3);
+        team3.showTeam();
     }
 
     //Técnica Utilizada: Partição de Equivalência - Valores Válidos
     @Test
     @DisplayName("Remove players at the team")
     void testRemovePlayers() {
-        team2 = new Team("Real Madrid Team");
-        t2 = new ArrayList<>();
-        assertAll("add team 2",
-                () -> assertTrue(team2.addPlayers(t2, goalB)),
-                () -> assertTrue(team2.addPlayers(t2, attackerB1)),
-                () -> assertTrue(team2.addPlayers(t2, attackerB2)),
-                () -> assertTrue(team2.addPlayers(t2, defenderB1)),
-                () -> assertTrue(team2.addPlayers(t2, defenderB2))
-        );
-        team2.setSoccerTeam(t2);
+        testAddPlayers();
         assertAll("remove players at team 2",
-                () -> assertTrue(team2.removePlayers(t2, "Griselda")),
-                () -> assertFalse(team2.removePlayers(t2, "Sabrina"))
+                () -> assertTrue(team2.removePlayers("Griselda")),
+                () -> assertFalse(team2.removePlayers("Sabrina"))
         );
     }
 
@@ -152,9 +133,9 @@ class TeamTest {
     @DisplayName("Set skills team")
     void testSetSkillsTeam() {
         testAddPlayers();
-        team1.setTeamSkill(t1);
-        team2.setTeamSkill(t2);
-        team3.setTeamSkill(t3);
+        team1.setTeamSkill();
+        team2.setTeamSkill();
+        team3.setTeamSkill();
         assertAll("set skills team",
                 () -> assertEquals(goalA.getSkill().add(attackerA1.getSkill().add(attackerA2.getSkill()
                                 .add(defenderA1.getSkill().add(defenderA2.getSkill())))), team1.getSkillTeams()),

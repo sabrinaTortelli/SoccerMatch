@@ -21,8 +21,8 @@ class DefenderTest {
     BigDecimal upperLimit;
     @BeforeEach
     void initDefenders(){
-        def1 = new Defender("Matheus", LocalDate.parse("2001-02-22"), PlayersType.DEFENDER1, 91, 95);
-        def2 = new Defender("José", LocalDate.parse("2000-12-23"), PlayersType.DEFENDER2, 97, 98);
+        def1 = new Defender("Matheus", LocalDate.parse("2005-02-22"), PlayersType.DEFENDER1, 91, 95);
+        def2 = new Defender("José", LocalDate.parse("1995-12-23"), PlayersType.DEFENDER2, 97, 98);
         inferiorLimit = new BigDecimal(-1);
         upperLimit = new BigDecimal(101);
     }
@@ -61,6 +61,16 @@ class DefenderTest {
         } catch (IllegalArgumentException e) {
             assertEquals("Arguments must not be null", e.getMessage());
         }
+    }
+
+    //Técnica Utilizada: Partição de Equivalência - Valores Válidos
+    @Test
+    @DisplayName("Get player's age")
+    void getPlayerAge() {
+        assertAll("skill value",
+                () -> assertEquals(17, def1.getAge()),
+                () -> assertEquals(26, def2.getAge())
+        );
     }
 
     //Técnica Utilizada: Partição de Equivalência - Valores Válidos
