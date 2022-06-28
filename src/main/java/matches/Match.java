@@ -118,28 +118,6 @@ public class Match {
         }
     }
 
-    private void setChancesDefenderAttacker(int number, int j, boolean chances){
-        if(number<2){
-            for(int i = 0; i< teamMatches.get(j).getSoccerTeam().size(); i++){
-                if((chances && (teamMatches.get(j).getSoccerTeam().get(i).getType() == PlayersType.DEFENDER2)) ||
-                        (!chances && (teamMatches.get(j).getSoccerTeam().get(i).getType() == PlayersType.DEFENDER1)) ||
-                        (chances && (teamMatches.get(j).getSoccerTeam().get(i).getType() == PlayersType.ATTACKER2)) ||
-                        (!chances && (teamMatches.get(j).getSoccerTeam().get(i).getType() == PlayersType.ATTACKER1))) {
-                    teamMatches.get(j).getSoccerTeam().get(i).setGoal(1);
-                }
-            }
-        } else{
-            for(int i = 0; i< teamMatches.get(j).getSoccerTeam().size(); i++){
-                if((chances && (teamMatches.get(j).getSoccerTeam().get(i).getType() == PlayersType.DEFENDER1)) ||
-                        (!chances && (teamMatches.get(j).getSoccerTeam().get(i).getType() == PlayersType.DEFENDER2)) ||
-                        (chances && (teamMatches.get(j).getSoccerTeam().get(i).getType() == PlayersType.ATTACKER1)) ||
-                        (!chances && (teamMatches.get(j).getSoccerTeam().get(i).getType() == PlayersType.ATTACKER2))){
-                    teamMatches.get(j).getSoccerTeam().get(i).setGoal(1);
-                }
-            }
-        }
-    }
-
     /**
      * Compara qual dos defensores tem mais chance de fazer um gol.
      * Depende do total das habilidades.
@@ -158,8 +136,37 @@ public class Match {
                 defender2 = teamMatches.get(j).getSoccerTeam().get(i).getSkill();
             }
         }
-        int number2 = random.nextInt(6);
-        setChancesDefenderAttacker(number2,j, defender1.compareTo(defender2) > 0);
+        if (defender1.compareTo(defender2)>0){
+            int number2 = random.nextInt(6);
+            if(number2<2){
+                for(int i = 0; i< teamMatches.get(j).getSoccerTeam().size(); i++){
+                    if(teamMatches.get(j).getSoccerTeam().get(i).getType() == PlayersType.DEFENDER2){
+                        teamMatches.get(j).getSoccerTeam().get(i).setGoal(1);
+                    }
+                }
+            } else{
+                for(int i = 0; i< teamMatches.get(j).getSoccerTeam().size(); i++){
+                    if(teamMatches.get(j).getSoccerTeam().get(i).getType() == PlayersType.DEFENDER1){
+                        teamMatches.get(j).getSoccerTeam().get(i).setGoal(1);
+                    }
+                }
+            }
+        }else{
+            int number2 = random.nextInt(6);
+            if(number2<2){
+                for(int i=0; i< teamMatches.get(j).getSoccerTeam().size(); i++){
+                    if(teamMatches.get(j).getSoccerTeam().get(i).getType() == PlayersType.DEFENDER1){
+                        teamMatches.get(j).getSoccerTeam().get(i).setGoal(1);
+                    }
+                }
+            } else{
+                for(int i = 0; i< teamMatches.get(j).getSoccerTeam().size(); i++){
+                    if(teamMatches.get(j).getSoccerTeam().get(i).getType() == PlayersType.DEFENDER2){
+                        teamMatches.get(j).getSoccerTeam().get(i).setGoal(1);
+                    }
+                }
+            }
+        }
     }
 
     /**
@@ -180,8 +187,37 @@ public class Match {
                 attacker2 = teamMatches.get(j).getSoccerTeam().get(i).getSkill();
             }
         }
-        int number2 = random.nextInt(6);
-        setChancesDefenderAttacker(number2,j, attacker1.compareTo(attacker2) > 0);
+        if (attacker1.compareTo(attacker2)>0){
+            int number2 = random.nextInt(6);
+            if(number2<2){
+                for(int i = 0; i< teamMatches.get(j).getSoccerTeam().size(); i++){
+                    if(teamMatches.get(j).getSoccerTeam().get(i).getType() == PlayersType.ATTACKER2){
+                        teamMatches.get(j).getSoccerTeam().get(i).setGoal(1);
+                    }
+                }
+            } else{
+                for(int i = 0; i< teamMatches.get(j).getSoccerTeam().size(); i++){
+                    if(teamMatches.get(j).getSoccerTeam().get(i).getType() == PlayersType.ATTACKER1){
+                        teamMatches.get(j).getSoccerTeam().get(i).setGoal(1);
+                    }
+                }
+            }
+        }else{
+            int number2 = random.nextInt(6);
+            if(number2<2){
+                for(int i=0; i< teamMatches.get(j).getSoccerTeam().size(); i++){
+                    if(teamMatches.get(j).getSoccerTeam().get(i).getType() == PlayersType.ATTACKER1){
+                        teamMatches.get(j).getSoccerTeam().get(i).setGoal(1);
+                    }
+                }
+            } else{
+                for(int i = 0; i< teamMatches.get(j).getSoccerTeam().size(); i++){
+                    if(teamMatches.get(j).getSoccerTeam().get(i).getType() == PlayersType.ATTACKER2){
+                        teamMatches.get(j).getSoccerTeam().get(i).setGoal(1);
+                    }
+                }
+            }
+        }
     }
 
     /**
@@ -373,7 +409,7 @@ public class Match {
     }
 
     /**
-     * Método que ordena os times de acordo com suas estatísticas
+     * Método que ordena os times de acordo com suas estatísticas em ordem crescente
      * @param name nome da estatística que pretende ser ordenada e mostrada na tela
      */
     public void compareStatistics(String name){

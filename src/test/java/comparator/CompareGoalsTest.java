@@ -60,13 +60,15 @@ class CompareGoalsTest {
     @Test()
     @DisplayName("Get exception with negative goals")
     void negativeShouldReturnIllegalArgumentException() {
-        try {
-            t2.setTotalGoalTeam(0);
-            t1.setTotalGoalTeam(-1);
-            fail("Necessita de exceção!");
-        } catch (IllegalArgumentException e) {
-            assertEquals("Number must not be negative", e.getMessage());
-        }
+//        t1.setTotalGoalTeam(-1);
+        assertThrows(IllegalArgumentException.class, () -> t1.setTotalGoalTeam(-1));
+//        try {
+//            t2.setTotalGoalTeam(0);
+//            t1.setTotalGoalTeam(-1);
+//            fail("Necessita de exceção!");
+//        } catch (IllegalArgumentException e) {
+//            assertEquals("Number must not be negative", e.getMessage());
+//        }
     }
 
 }
